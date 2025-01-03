@@ -118,6 +118,7 @@
   <a href="https://medium.com/@abhi.vish7466" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Medium&logo=medium&label=&color=12100E&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="medium logo"  />
   </a>
+  <a href="https://hashnode.com/@vish7466"><img src="https://img.shields.io/badge/Hashnode-%232962FF.svg?style=for-the-badge&logo=hashnode&logoColor=white" height="35" alt="hashnode logo" /></a>
   <a href="https://x.com/Vish_Vertex" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="twitter logo"  />
   </a>
