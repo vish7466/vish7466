@@ -1,28 +1,39 @@
 name: Update Medium Articles
 
 on:
-  schedule:
-    - cron: '0 * * * *' # Runs every hour
+  schedule: # execute every 12 hours
+    - cron: "0 */12 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
-  update-readme:
+  fetch-medium-articles:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch Medium Articles
-        uses: rahuldkjain/github-profile-readme-generator@latest
+      - name: Fetch Medium articles
+        id: medium
+        uses: phillipnitsch/medium-to-markdown-action@v1
         with:
-          username: <your-medium-username> # Replace with your Medium username
+          username: '@abhi.vish7466' # Replace with your Medium username
+          max_articles: 5           # Number of latest articles to fetch
 
-      - name: Commit Changes
+      - name: Update README
+        run: |
+          sed -i '/<!-- MEDIUM:START -->/,/<!-- MEDIUM:END -->/c\<!-- MEDIUM:START -->\n${{ steps.medium.outputs.content }}\n<!-- MEDIUM:END -->' README.md
+
+      - name: Commit changes
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Updated latest Medium articles"
+          git add README.md
+          git commit -m "Update Medium articles"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
