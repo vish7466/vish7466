@@ -130,12 +130,6 @@
 
 <br clear="both">
 
-<img src="https://raw.githubusercontent.com/vish7466/vish7466/output/snake.svg" alt="Snake animation" />
-
-###
-
-<br clear="both">
-
 <div align="center">
   <img src="https://github-read-medium-git-main.pahlevikun.vercel.app/latest?limit=4&theme=default&username=abhi.vish7466" alt="Layout with last medium posts"  />
 </div>
